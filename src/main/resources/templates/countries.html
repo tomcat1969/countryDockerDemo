@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>list all countries</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" >
+        <div class="well" style="margin-top:50px">
+            <h1 class="page-header">list all countries</h1>
+            <p><a href="./addNew.html" th:href="@{/countries/addNew}" class="btn btn-primary">Add </a></p>
+            <table style="width: 900px; border: 1px solid black">
+                <tr>
+                    <th>id</th>
+                    <th> name</th>
+                    <th>capital</th>
+                    <th>population</th>
+                </tr>
+
+                <tr th:each="country,iterStat : ${countries}">
+<!--                    <td th:text="${iterStat.count}">count</td>-->
+                    <td th:text="${country.id}">id</td>
+                    <td><a th:text="${country.name}" th:href="@{/countries/details/{id}(id=${country.id})}">name</a></td>
+                    <td th:text="${country.capital}">captital</td>
+                    <td th:text="${country.population}">population</td>
+
+                    <td> <a th:href="@{/countries/delete/{id}(id=${country.id})}"> Delete</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    <td> <a th:href="@{/countries/edit/{id}(id=${country.id})}"> Edit</a>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

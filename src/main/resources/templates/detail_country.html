@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eidt country</title>
+</head>
+<body>
+<div class="container" style="margin-left: 160px">
+    <h1>details</h1>
+    <table style="border: 1px solid blue; width:700px">
+
+        <tr>
+
+            <td th:text ="${country.id}"> ID</td>
+            <td th:text ="${country.name}"> Name</td>
+            <td th:text ="${country.capital}"> capital</td>
+            <td th:text ="${country.population}"> population</td>
+
+
+        </tr>
+        <a th:href="@{/countries/}" > back </a>
+    </table>
+</div>
+
+</body>
+
+
+</html>
